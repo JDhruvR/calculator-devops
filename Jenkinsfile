@@ -10,8 +10,9 @@ pipeline {
     }
 
     triggers {
-        // Auto-trigger on every GitHub push (requires webhook configured in GitHub)
+        // Auto-trigger on GitHub webhook push, with Poll SCM fallback every 2 minutes
         githubPush()
+        pollSCM('H/2 * * * *')
     }
 
     stages {
