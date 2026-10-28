@@ -4,7 +4,7 @@ pipeline {
     environment {
         // ── Change these two values to your own ──────────────────────────────
         DOCKERHUB_USER     = 'jdhruvr'
-        NOTIFICATION_EMAIL = 'jdhruvr@example.com'    // ← replace with your real email
+        NOTIFICATION_EMAIL = 'dhrramjos@gmail.com'
         // ────────────────────────────────────────────────────────────────────
         IMAGE_NAME = "${DOCKERHUB_USER}/calculator-api"
         IMAGE_TAG  = "${BUILD_NUMBER}"
