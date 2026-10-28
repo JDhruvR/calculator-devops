@@ -1,0 +1,41 @@
+version: "3.9"
+
+networks:
+  calculator-net:
+    driver: bridge
+
+services:
+
+  # ── Calculator Spring Boot Application ────────────────────────────────────────
+  calculator:
+    image: ${DOCKER_IMAGE:-calculator-api:latest}
+    container_name: calculator-app
+    networks:
+      - calculator-net
+    expose:
+      - "8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SERVER_PORT=8080
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # ── Nginx Reverse Proxy ────────────────────────────────────────────────────────
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: calculator-proxy
+    networks:
+      - calculator-net
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      calculator:
+        condition: service_healthy
+    restart: unless-stopped
