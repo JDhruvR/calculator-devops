@@ -101,3 +101,4 @@ class CalculatorControllerTest {
                 .andExpect(jsonPath("$.status").value("UP"));
     }
 }
+

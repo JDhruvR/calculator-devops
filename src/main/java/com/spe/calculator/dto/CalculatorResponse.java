@@ -10,3 +10,4 @@ public record CalculatorResponse(
         double b,
         double result
 ) {}
+

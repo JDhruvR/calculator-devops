@@ -68,3 +68,4 @@ class CalculatorServiceTest {
         assertTrue(ex.getMessage().toLowerCase().contains("zero"));
     }
 }
+
