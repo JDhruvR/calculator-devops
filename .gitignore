@@ -1,0 +1,28 @@
+# Maven build output
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.DS_Store
+.classpath
+.project
+.settings/
+
+# Secrets & environment
+*.env
+.env.*
+application-secret.properties
+application-local.properties
+
+# Logs
+*.log
+logs/
+
+# Docker
+.docker/
