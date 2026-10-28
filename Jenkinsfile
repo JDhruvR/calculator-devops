@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         // ── Change these two values to your own ──────────────────────────────
-        DOCKERHUB_USER     = 'your-dockerhub-username'
-        NOTIFICATION_EMAIL = 'your-email@example.com'
+        DOCKERHUB_USER     = 'jdhruvr'
+        NOTIFICATION_EMAIL = 'jdhruvr@example.com'    // ← replace with your real email
         // ────────────────────────────────────────────────────────────────────
         IMAGE_NAME = "${DOCKERHUB_USER}/calculator-api"
         IMAGE_TAG  = "${BUILD_NUMBER}"
@@ -148,3 +148,4 @@ pipeline {
         }
     }
 }
+

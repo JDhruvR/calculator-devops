@@ -8,7 +8,7 @@ services:
 
   # ── Calculator Spring Boot Application ────────────────────────────────────────
   calculator:
-    image: ${DOCKER_IMAGE:-calculator-api:latest}
+    image: ${DOCKER_IMAGE:-jdhruvr/calculator-api:latest}
     container_name: calculator-app
     networks:
       - calculator-net
@@ -39,3 +39,4 @@ services:
       calculator:
         condition: service_healthy
     restart: unless-stopped
+
