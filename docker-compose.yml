@@ -27,16 +27,16 @@ services:
 
   # ── Nginx Reverse Proxy ────────────────────────────────────────────────────────
   nginx:
-    image: nginx:1.27-alpine
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: ${PROXY_IMAGE:-jdhruvr/calculator-proxy:latest}
     container_name: calculator-proxy
     networks:
       - calculator-net
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       calculator:
         condition: service_healthy
     restart: unless-stopped
-
