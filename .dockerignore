@@ -1,0 +1,28 @@
+# Exclude files that don't belong in the Docker build context
+# This keeps image builds fast and avoids accidentally leaking files
+
+# Maven build output (the builder stage handles compilation itself)
+target/
+
+# Version control
+.git/
+.gitignore
+
+# Documentation
+*.md
+docs/
+
+# IDE configuration
+.idea/
+*.iml
+.vscode/
+
+# CI/CD config (not needed inside the image)
+Jenkinsfile
+
+# Docker files themselves
+docker-compose.yml
+.dockerignore
+
+# OS artifacts
+.DS_Store
