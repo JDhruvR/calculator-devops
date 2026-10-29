@@ -186,3 +186,7 @@ calculator-devops/
 └── README.md
 ```
 
+
+## Live Deployment Status
+
+Pipeline fully automated — any `git push` to `main` triggers Jenkins to build, test, containerize, push to Docker Hub, and deploy automatically. No manual steps required.
