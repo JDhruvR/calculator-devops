@@ -39,3 +39,5 @@ Show api working through nginx reverse proxy
 curl "http://localhost/api/v1/add?a=10&b=20"
 curl "http://localhost/api/v1/divide?a=5&b=0"
 curl "http://localhost/actuator/health"
+
+aaa
