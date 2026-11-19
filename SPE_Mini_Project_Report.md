@@ -168,3 +168,4 @@ The end-to-end CI/CD pipeline satisfies all requirements specified in the rubric
 - Secure, declarative Jenkins automation with credential abstraction.
 - Production-hardened multi-stage containerization with non-root privileges.
 - Multi-container orchestration with Nginx and Actuator health probes.
+

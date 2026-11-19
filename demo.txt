@@ -1,0 +1,41 @@
+Curl for demoing all the operations
+
+# 1. Addition
+curl -s "http://localhost/api/v1/add?a=12&b=8"
+# Output: {"operation":"add","a":12.0,"b":8.0,"result":20.0}
+
+# 2. Subtraction
+curl -s "http://localhost/api/v1/subtract?a=50&b=20"
+# Output: {"operation":"subtract","a":50.0,"b":20.0,"result":30.0}
+
+# 3. Multiplication
+curl -s "http://localhost/api/v1/multiply?a=6&b=7"
+# Output: {"operation":"multiply","a":6.0,"b":7.0,"result":42.0}
+
+# 4. Division
+curl -s "http://localhost/api/v1/divide?a=100&b=4"
+# Output: {"operation":"divide","a":100.0,"b":4.0,"result":25.0}
+
+# 5. Division by Zero (Point out HTTP 400 and structured JSON)
+curl -i "http://localhost/api/v1/divide?a=10&b=0"
+# Shows: HTTP/1.1 400 Bad Request
+# Body: {"status":400,"error":"Bad Request","message":"Division by zero is not allowed"}
+
+# 6. Actuator Health Probe
+curl -s "http://localhost/actuator/health"
+# Output: {"status":"UP",...}
+
+Maven testing manually
+
+cd /Users/dhruv/Study/SPE/SPE_Mini_Project/calculator-devops
+mvn test
+
+Show running containers
+
+docker ps
+
+Show api working through nginx reverse proxy
+
+curl "http://localhost/api/v1/add?a=10&b=20"
+curl "http://localhost/api/v1/divide?a=5&b=0"
+curl "http://localhost/actuator/health"
